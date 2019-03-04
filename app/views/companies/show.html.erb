@@ -1,0 +1,16 @@
+<h1><%= @company.name %></h1>
+
+<h3>Reclamos</h3>
+
+<%= form_with(model: [@company, @claim]) do |f| %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+
+  <%= f.submit %>
+<% end %>
+
+<ul id='claims'>
+<% @claims.each do |claim| %>
+    <li><%= claim.content %> att: <%= claim.user.email %></li>
+<% end %>
+</ul>
